@@ -7,7 +7,7 @@ import Text.Megaparsec.Char.Lexer (decimal)
 type Rule = (Int, Int, Char)
 
 main :: IO ()
-main = print =<< solve . map parseLine . lines <$> readFile "Day02.input"
+main = print . solve . map parseLine . lines =<< readFile "Day02.input"
 
 parseLine :: String -> (Rule, String)
 parseLine = fromJust . parseMaybe ruleP

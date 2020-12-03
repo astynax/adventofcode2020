@@ -1,5 +1,5 @@
 main :: IO ()
-main = print =<< (solve . map read . lines) <$> readFile "Day01.input"
+main = print . solve . map read . lines =<< readFile "Day01.input"
 
 solve :: [Int] -> (Int, Int)
 solve rows = (head pairs, head triples)
