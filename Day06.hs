@@ -14,7 +14,8 @@ decode = unfoldr $ \l -> do
 solve :: [[String]] -> (Int, Int)
 solve groups = (countOnly atLeastOnce, countOnly common)
   where
-    countOnly f   = sum . map (length . f . map Set.fromList) $ groups
+    groupSets     = map (map Set.fromList) groups
+    countOnly f   = sum $ map (length . f) groupSets
     atLeastOnce   = foldl' Set.union Set.empty
     common [x]    = x
     common (x:xs) = foldl' Set.intersection x xs
