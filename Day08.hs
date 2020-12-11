@@ -1,6 +1,4 @@
 {-# LANGUAGE NamedFieldPuns #-}
-{-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE LambdaCase #-}
 
 import Data.IntMap.Strict (IntMap)
 import qualified Data.IntMap.Strict as Map

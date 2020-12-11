@@ -12,6 +12,11 @@ common exe
                      , megaparsec ^>= 9.0.0
                      , containers
   default-language:    Haskell2010
+  default-extensions:  RecordWildCards
+                     , TupleSections
+                     , TypeApplications
+                     , BangPatterns
+                     , LambdaCase
 
 executable day01
   import:              exe

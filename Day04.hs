@@ -1,5 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-
 import Data.Char (isDigit)
 import Data.List (sort)
 import Text.Read (readMaybe)
