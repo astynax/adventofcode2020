@@ -17,6 +17,13 @@ common exe
                      , TypeApplications
                      , BangPatterns
                      , LambdaCase
+                     , NegativeLiterals
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wredundant-constraints
+                       -Wmissing-exported-signatures
 
 executable day01
   import:              exe
@@ -61,3 +68,7 @@ executable day10
 executable day11
   import:              exe
   main-is:             Day11.hs
+
+executable day12
+  import:              exe
+  main-is:             Day12.hs
