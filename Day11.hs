@@ -12,9 +12,9 @@ type Pos = (Int, Int)
 type Cells = Set Pos
 type Neibs = [Pos]
 
-data Future = Future
-data Near = Near
-data Visible = Visible
+data Future
+data Near
+data Visible
 
 data Setup t = Setup
   { mx    :: Int

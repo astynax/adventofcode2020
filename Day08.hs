@@ -12,7 +12,6 @@ data Op
   | Acc
 
 type Cmd = (Op, Int)
-type Program = IntMap Cmd
 
 data Machine = Machine
   { acc :: !Int

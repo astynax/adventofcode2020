@@ -17,5 +17,6 @@ solve groups = (countOnly atLeastOnce, countOnly common)
     groupSets     = map (map Set.fromList) groups
     countOnly f   = sum $ map (length . f) groupSets
     atLeastOnce   = foldl' Set.union Set.empty
+    common []     = Set.empty
     common [x]    = x
     common (x:xs) = foldl' Set.intersection x xs

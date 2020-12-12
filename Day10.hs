@@ -40,7 +40,7 @@ countRendundant = product . map (countVariations . length) . filter ones . group
     allVariations = map variations [0..]
 
 variations :: Int -> Int
-variations = length . variate . (`replicate` 1)
+variations = length . variate . (`replicate` (1 :: Int))
   where
     variate (a : b : xs)
       | a < 3     = keepA ++ variate ((a + b) : xs)

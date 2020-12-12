@@ -4,7 +4,7 @@ main = print . solve . map read . lines =<< readFile "Day01.input"
 solve :: [Int] -> (Int, Int)
 solve rows = (head pairs, head triples)
   where
-    erows = zip [0..] rows
+    erows = zip [0 :: Int ..] rows
     pairs =
       [ x * y
       | (ix, x) <- erows

@@ -1,6 +1,7 @@
 import Data.Void
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
+import Data.Maybe (fromMaybe)
 import Data.List (foldl')
 import qualified Data.Set as Set
 import Data.Set (Set)
@@ -11,7 +12,6 @@ import Text.Megaparsec.Char.Lexer
 type Parser = Parsec Void String
 
 type Bag = (String, String)
-type Rule = (Bag, [(Int, Bag)])
 type Rules = Map Bag [(Int, Bag)]
 
 goldenBag :: Bag
@@ -68,26 +68,25 @@ countSubbags rules = fst . go Map.empty
           let
             (v, cache') =
               foldl' (\(s, c) (n, sb)->
-                       let (v, c') = go c sb
-                       in (s + n * v, c'))
+                       let (v', c') = go c sb
+                       in (s + n * v', c'))
               (1, cache)
               xs
           in (v, Map.insert bag v cache')
+        _                 -> error $ "No rules for " ++ show bag
 
 decode :: [String] -> Rules
-decode xs =
-  let Just items = sequence $ map (parseMaybe ruleP) xs
-  in Map.fromList items
+decode = Map.fromList . fromMaybe [] . sequence . map (parseMaybe ruleP)
 
 ruleP :: Parser (Bag, [(Int, Bag)])
 ruleP = do
   bag <- bagP
-  string " contain "
+  () <$ string " contain "
   values <-
     ([] <$ string "no other bags")
     <|>
     sepBy1 subbagP (string ", ")
-  char '.'
+  () <$ char '.'
   pure (bag, values)
   where
     subbagP :: Parser (Int, Bag)
@@ -96,9 +95,9 @@ ruleP = do
     bagP :: Parser Bag
     bagP = do
       d1 <- some letterChar
-      space1
+      () <$ space1
       d2 <- some letterChar
-      space1
-      string "bag"
-      optional $ char 's'
+      () <$ space1
+      () <$ string "bag"
+      () <$ optional (char 's')
       pure (d1, d2)
