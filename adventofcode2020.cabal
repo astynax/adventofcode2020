@@ -88,3 +88,7 @@ executable day15
 executable day16
   import:              exe
   main-is:             Day16.hs
+
+executable day17
+  import:              exe
+  main-is:             Day17.hs
