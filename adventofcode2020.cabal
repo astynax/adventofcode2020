@@ -11,6 +11,7 @@ common exe
   build-depends:       base >=4.13 && <4.14
                      , megaparsec ^>= 9.0.0
                      , containers
+                     , mtl
   default-language:    Haskell2010
   default-extensions:  RecordWildCards
                      , TupleSections
@@ -18,6 +19,7 @@ common exe
                      , BangPatterns
                      , LambdaCase
                      , NegativeLiterals
+                     , FlexibleContexts
   ghc-options:         -Wall
                        -Wcompat
                        -Wincomplete-record-updates
@@ -96,3 +98,7 @@ executable day17
 executable day18
   import:              exe
   main-is:             Day18.hs
+
+executable day19
+  import:              exe
+  main-is:             Day19.hs
