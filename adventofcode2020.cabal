@@ -102,3 +102,7 @@ executable day18
 executable day19
   import:              exe
   main-is:             Day19.hs
+
+executable day20
+  import:              exe
+  main-is:             Day20.hs
