@@ -76,7 +76,7 @@ countSubbags rules = fst . go Map.empty
         _                 -> error $ "No rules for " ++ show bag
 
 decode :: [String] -> Rules
-decode = Map.fromList . fromMaybe [] . sequence . map (parseMaybe ruleP)
+decode = Map.fromList . fromMaybe [] . traverse (parseMaybe ruleP)
 
 ruleP :: Parser (Bag, [(Int, Bag)])
 ruleP = do

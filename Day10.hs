@@ -11,7 +11,7 @@ main = do
       , 24, 23, 49, 45, 19, 38, 39, 11, 1, 32
       , 25, 35, 8, 17, 7, 9, 4, 2, 34, 10, 3
       ])
-  print . (solve =<<) . sequence . map readMaybe . lines
+  print . (solve =<<) . traverse readMaybe . lines
     =<< readFile "Day10.input"
 
 solve :: [Int] -> Maybe (Int, Int)
@@ -24,7 +24,7 @@ solve xs = do
     count x = length . filter (== x)
 
 diffs :: [Int] -> Maybe [Diff]
-diffs = sequence . map toDiff . deltas . sort
+diffs = traverse toDiff . deltas . sort
   where
     deltas xs = zipWith (-) xs (0 : xs)
     toDiff 1 = Just D1
