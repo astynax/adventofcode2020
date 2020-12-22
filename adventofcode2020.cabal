@@ -110,3 +110,8 @@ executable day20
 executable day21
   import:              exe
   main-is:             Day21.hs
+
+executable day22
+  import:              exe
+  main-is:             Day22.hs
+  build-depends:       unordered-containers

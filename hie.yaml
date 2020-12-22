@@ -1,4 +1,2 @@
 cradle:
   cabal:
-    - path: "."
-      component: "exe:day01"
