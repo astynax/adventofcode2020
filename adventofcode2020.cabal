@@ -121,3 +121,8 @@ executable day23
   main-is:             Day23.hs
   build-depends:       vector
                      , mtl
+
+executable day24
+  import:              exe
+  main-is:             Day24.hs
+  build-depends:       containers
