@@ -119,4 +119,5 @@ executable day22
 executable day23
   import:              exe
   main-is:             Day23.hs
-  build-depends:       unordered-containers
+  build-depends:       vector
+                     , mtl
