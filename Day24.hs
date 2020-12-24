@@ -1,5 +1,3 @@
-import Debug.Trace (trace)
-
 import Data.List (foldl')
 import qualified Data.Map.Strict as Map
 import qualified Data.Set as Set
